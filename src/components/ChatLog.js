@@ -17,13 +17,14 @@ const ChatLog =({entries}) => {
     return <div>{chatEntries}</div>
 }
 ChatLog.propTypes = {
-    entries: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        body: PropTypes.string.isRequired,
-        sender: PropTypes.string.isRequired,
-        timeStamp: PropTypes.string.isRequired,
-        like: PropTypes.bool.isRequired,
-    })
+    entries: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            body: PropTypes.string.isRequired,
+            sender: PropTypes.string.isRequired,
+            timeStamp: PropTypes.string.isRequired,
+            like: PropTypes.bool.isRequired,
+    }))
 }
 
 export default ChatLog;
