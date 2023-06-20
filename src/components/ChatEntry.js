@@ -3,7 +3,7 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({ sender, timeStamp, body}) => {
+const ChatEntry = ({ sender, timeStamp, body, id}) => {
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{ sender }</h2>
@@ -17,6 +17,7 @@ const ChatEntry = ({ sender, timeStamp, body}) => {
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
