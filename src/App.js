@@ -21,6 +21,17 @@ const App = () => {
     });
     setMessages(newMessages);
   }
+
+  const totalLikes = () => {
+    let totalLikesCount = 0;
+    for (let message of messages) {
+      totalLikesCount += message.liked;
+    }
+    if (totalLikesCount === 0) {
+      return 0
+    }
+    return `${totalLikesCount} ❤️s`;
+  }
   
   return (
     <div id="App">
@@ -28,8 +39,10 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatLog 
-          entries={ messages }>
+        <p>Total Likes: { totalLikes() }</p>
+        <ChatLog
+          entries={ messages }
+          toggleLike={ toggleLike }>
         </ChatLog>
       </main>
     </div>
