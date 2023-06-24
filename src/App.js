@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import './components/ChatEntry';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
 
-  const [messages, setMessages] = useState(chatMessages);
+  const [messages, setMessages] = useState(chatMessages.map(message => {
+    return {
+      ...message,
+      color: 'black'
+    }
+  }));
   
   const toggleLike = (id) => {
     const newMessages = messages.map(message =>{
