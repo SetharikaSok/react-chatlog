@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
+import ColorChoice from './components/ColorChoice';
 
 const App = () => {
 
@@ -31,18 +32,42 @@ const App = () => {
       totalLikesCount += message.liked;
     }
     if (totalLikesCount === 0) {
-      return 0
+      return '0 ❤️s'
     }
     return `${totalLikesCount} ❤️s`;
+  }
+
+  const setColor = (who, color) => {
+    console.log('in setColor')
+    const newMessages = messages.map(message => {
+      if (message.sender === who) {
+        return {
+          ...message,
+          color: color,
+        };
+      };
+      return {...message};
+    })
+    setMessages(newMessages);
   }
   
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
+        <section >
+          <ColorChoice
+            message={ messages[0] }
+            setColorCallBack={setColor}>
+          </ColorChoice>
+          <p>{ totalLikes() }</p>
+          <ColorChoice
+            message={ messages[1] }
+            setColorCallBack={setColor}>
+          </ColorChoice>
+        </section>
       </header>
       <main>
-        <p>Total Likes: { totalLikes() }</p>
         <ChatLog
           entries={ messages }
           toggleLike={ toggleLike }>

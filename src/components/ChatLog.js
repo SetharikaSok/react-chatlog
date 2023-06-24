@@ -12,6 +12,7 @@ const ChatLog =({ entries, toggleLike }) => {
             sender={ entry.sender } 
             timeStamp={ entry.timeStamp }
             liked={ entry.liked }
+            color={ entry.color }
             toggleLike={ toggleLike }>
         </ChatEntry>
     })
@@ -25,6 +26,7 @@ ChatLog.propTypes = {
             sender: PropTypes.string.isRequired,
             timeStamp: PropTypes.string.isRequired,
             liked: PropTypes.bool.isRequired,
+            color: PropTypes.string.isRequired,
     })),
     toggleLike: PropTypes.func.isRequired
 }

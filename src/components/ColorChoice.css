@@ -1,0 +1,24 @@
+.color_choice_container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    color: black;
+    padding-top: 5px;
+}
+
+.color_list {
+    list-style-type: none;
+    display: flex;
+    gap: 16px
+}
+
+.total_likes {
+    display: flex;
+    justify-content: baseline;
+    font-size: larger;
+}
+
+/* .local .remote {
+    display: flex;
+    justify-content: center;
+} */
